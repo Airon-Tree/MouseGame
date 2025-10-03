@@ -1,12 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://brh6e5ytsj3o4"]
+[gd_scene load_steps=8 format=3 uid="uid://brh6e5ytsj3o4"]
 
+[ext_resource type="Script" uid="uid://v7jdryc184j4" path="res://Object/main.gd" id="1_desed"]
 [ext_resource type="PackedScene" uid="uid://cq0euw2i7edgy" path="res://Object/cheese.tscn" id="1_pka1d"]
 [ext_resource type="PackedScene" uid="uid://cgbql1xog71o8" path="res://Object/player.tscn" id="2_f1bcj"]
 [ext_resource type="PackedScene" uid="uid://ci6jhpoaafgwt" path="res://Object/bigcheese.tscn" id="3_ior4o"]
 [ext_resource type="PackedScene" uid="uid://fgd701onwood" path="res://Object/smallcheese.tscn" id="4_53eub"]
 [ext_resource type="PackedScene" uid="uid://c4tphd3q80phl" path="res://Object/wall.tscn" id="5_53eub"]
+[ext_resource type="Script" uid="uid://rfilx2578c5q" path="res://Object/label.gd" id="7_xkpur"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_desed")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1152.0
@@ -28,3 +31,15 @@ position = Vector2(942, 405)
 
 [node name="wall" parent="." instance=ExtResource("5_53eub")]
 position = Vector2(498, 652)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 120.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = 25.0
+offset_top = 2.0
+offset_right = 191.0
+offset_bottom = 76.0
+script = ExtResource("7_xkpur")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
