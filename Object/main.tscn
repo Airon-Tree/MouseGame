@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://brh6e5ytsj3o4"]
+[gd_scene load_steps=6 format=3 uid="uid://brh6e5ytsj3o4"]
 
 [ext_resource type="PackedScene" uid="uid://cq0euw2i7edgy" path="res://Object/cheese.tscn" id="1_pka1d"]
 [ext_resource type="PackedScene" uid="uid://cgbql1xog71o8" path="res://Object/player.tscn" id="2_f1bcj"]
+[ext_resource type="PackedScene" uid="uid://ci6jhpoaafgwt" path="res://Object/bigcheese.tscn" id="3_ior4o"]
+[ext_resource type="PackedScene" uid="uid://fgd701onwood" path="res://Object/smallcheese.tscn" id="4_53eub"]
+[ext_resource type="PackedScene" uid="uid://c4tphd3q80phl" path="res://Object/wall.tscn" id="5_53eub"]
 
 [node name="Main" type="Node2D"]
 
@@ -11,6 +14,17 @@ offset_bottom = 648.0
 color = Color(1, 1, 0.42352942, 0.50980395)
 
 [node name="Player" parent="." instance=ExtResource("2_f1bcj")]
+position = Vector2(629, 144)
+base_move_speed = 400.0
 
 [node name="Cheese" parent="." instance=ExtResource("1_pka1d")]
 position = Vector2(193, 141)
+
+[node name="bigcheese" parent="." instance=ExtResource("3_ior4o")]
+position = Vector2(340, 425)
+
+[node name="smallcheese" parent="." instance=ExtResource("4_53eub")]
+position = Vector2(942, 405)
+
+[node name="wall" parent="." instance=ExtResource("5_53eub")]
+position = Vector2(498, 652)

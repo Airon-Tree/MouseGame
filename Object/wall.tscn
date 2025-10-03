@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4tphd3q80phl"]
+
+[ext_resource type="Texture2D" uid="uid://dvmx8yxswesrr" path="res://Art/white-brick-wall-background.jpg" id="1_cqx7o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0qf77"]
+size = Vector2(1165, 88)
+
+[node name="wall" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(74.5, 3)
+shape = SubResource("RectangleShape2D_0qf77")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(81.62497, 1)
+scale = Vector2(0.2906875, 0.14046545)
+texture = ExtResource("1_cqx7o")

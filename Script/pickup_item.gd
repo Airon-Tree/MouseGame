@@ -1,5 +1,12 @@
 extends Area2D
 
+# Multiplies the player's base speed while this item is held.
+# Example presets:
+#   smallcheese: 0.90  (low effect)
+#   cheese:      0.75  (medium)
+#   bigcheese:   0.55  (heavy)
+@export_range(0.1, 1.0, 0.01) var speed_multiplier: float = 0.75
+
 @export var float_when_held: bool = true
 @export var held_z_boost: int = 1
 
@@ -12,7 +19,15 @@ func _ready() -> void:
 func is_item_pickable() -> bool:
 	return _pickable
 
+func get_carry_speed_multiplier() -> float:
+	return speed_multiplier
+
+# holder: Player; hold_point: Marker2D on the player
 func on_pickup(holder: Node2D, hold_point: Marker2D) -> void:
+	if self.is_ancestor_of(holder):
+		push_warning("Item is an ancestor of Player. Fix Main.tscn: make Player and items siblings.")
+		return
+
 	_pickable = false
 	_original_z = z_index
 	monitoring = false

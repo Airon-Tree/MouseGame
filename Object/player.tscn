@@ -7,9 +7,10 @@
 size = Vector2(215, 81)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uowl7"]
-radius = 147.05441
+radius = 116.03879
 
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 7
 script = ExtResource("1_kwdud")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -29,4 +30,4 @@ position = Vector2(-7, 0)
 shape = SubResource("CircleShape2D_uowl7")
 
 [node name="HoldPoint" type="Marker2D" parent="."]
-position = Vector2(40, -42)
+position = Vector2(0, -45)

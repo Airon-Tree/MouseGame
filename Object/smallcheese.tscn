@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://fgd701onwood"]
+
+[ext_resource type="Texture2D" uid="uid://72ajpu5b83ti" path="res://Art/cartoon-cheese-3.png" id="1_lb3xl"]
+[ext_resource type="Script" uid="uid://cixq478g7dm0c" path="res://Script/pickup_item.gd" id="2_kxmgs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kxmgs"]
+size = Vector2(63, 52)
+
+[node name="smallcheese" type="Area2D"]
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("2_kxmgs")
+speed_multiplier = 0.9
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.9999695, 3.0517578e-05)
+scale = Vector2(0.07204611, 0.07467532)
+texture = ExtResource("1_lb3xl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_kxmgs")

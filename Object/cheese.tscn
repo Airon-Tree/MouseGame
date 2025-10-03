@@ -4,17 +4,18 @@
 [ext_resource type="Texture2D" uid="uid://c1mv8aqwg3biq" path="res://Art/Cheese.png" id="1_kbkbi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7rnyk"]
-size = Vector2(97, 74)
+size = Vector2(156, 119)
 
 [node name="Cheese" type="Area2D"]
-collision_mask = 3
+collision_layer = 2
+collision_mask = 7
 script = ExtResource("1_7rnyk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-0.4999962, -2.4999962)
-scale = Vector2(0.36944446, 0.35833335)
+position = Vector2(0, 1)
+scale = Vector2(0.5083333, 0.475)
 texture = ExtResource("1_kbkbi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.5, -1)
+position = Vector2(-1, -1.5)
 shape = SubResource("RectangleShape2D_7rnyk")
