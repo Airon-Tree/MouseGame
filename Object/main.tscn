@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://brh6e5ytsj3o4"]
+[gd_scene load_steps=12 format=3 uid="uid://brh6e5ytsj3o4"]
 
 [ext_resource type="Script" uid="uid://v7jdryc184j4" path="res://Object/main.gd" id="1_desed"]
 [ext_resource type="PackedScene" uid="uid://cq0euw2i7edgy" path="res://Object/cheese.tscn" id="1_pka1d"]
@@ -8,7 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://c4tphd3q80phl" path="res://Object/wall.tscn" id="5_53eub"]
 [ext_resource type="Script" uid="uid://rfilx2578c5q" path="res://Object/label.gd" id="7_xkpur"]
 [ext_resource type="PackedScene" uid="uid://drjjh4hukbjb4" path="res://Scenes/ScoreUI.tscn" id="8_2itwi"]
-[ext_resource type="PackedScene" uid="uid://b4lfvc3e0ehdo" path="res://Object/hole.tscn" id="9_84tgt"]
+[ext_resource type="PackedScene" uid="uid://b0rwbxb01dje7" path="res://Object/mousetrap.tscn" id="8_3y6f8"]
+[ext_resource type="PackedScene" path="res://Object/hole.tscn" id="9_84tgt"]
 [ext_resource type="PackedScene" uid="uid://bmsnhy747fxhw" path="res://Scenes/WinUI.tscn" id="10_84tgt"]
 
 [node name="Main" type="Node2D"]
@@ -19,17 +20,17 @@ offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(1, 1, 0.42352942, 0.50980395)
 
-[node name="Player" parent="." instance=ExtResource("2_f1bcj")]
+[node name="Player" parent="." groups=["mouse"] instance=ExtResource("2_f1bcj")]
 position = Vector2(674, 305)
 base_move_speed = 400.0
 
-[node name="Cheese" parent="." instance=ExtResource("1_pka1d")]
+[node name="Cheese" parent="." groups=["cheese"] instance=ExtResource("1_pka1d")]
 position = Vector2(368, 212)
 
-[node name="bigcheese" parent="." instance=ExtResource("3_ior4o")]
+[node name="bigcheese" parent="." groups=["cheese"] instance=ExtResource("3_ior4o")]
 position = Vector2(624, 480)
 
-[node name="smallcheese" parent="." instance=ExtResource("4_53eub")]
+[node name="smallcheese" parent="." groups=["cheese"] instance=ExtResource("4_53eub")]
 position = Vector2(942, 405)
 
 [node name="wall" parent="." instance=ExtResource("5_53eub")]
@@ -53,8 +54,17 @@ position = Vector2(88, 314)
 [node name="WinUI" parent="." instance=ExtResource("10_84tgt")]
 
 [node name="ScoreLabel" type="Label" parent="."]
-visible = false
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 3.0
+offset_top = 46.0
+offset_right = 43.0
+offset_bottom = 69.0
 
+[node name="Mousetrap" parent="." instance=ExtResource("8_3y6f8")]
+position = Vector2(218, 470)
+
+[node name="Mousetrap2" parent="." instance=ExtResource("8_3y6f8")]
+position = Vector2(995, 206)
+
+[connection signal="mouse_entered" from="Player" to="." method="_on_player_mouse_entered"]
+[connection signal="mouse_entered" from="Player" to="Mousetrap" method="_on_player_mouse_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

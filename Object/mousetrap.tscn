@@ -1,17 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://b0rwbxb01dje7"]
+[gd_scene load_steps=5 format=3 uid="uid://b0rwbxb01dje7"]
 
 [ext_resource type="Texture2D" uid="uid://c2ua51sqcr4eb" path="res://Object/mousetrap.jpg" id="1_a6tmg"]
+[ext_resource type="Script" uid="uid://dowkghopas46f" path="res://Object/mousetrap.gd" id="1_hnpif"]
 [ext_resource type="Script" uid="uid://s5og53txm7nj" path="res://collision_shape_2d.gd" id="2_hnpif"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yrc38"]
 size = Vector2(131, 230)
 
-[node name="Mousetrap" type="Sprite2D"]
-texture = ExtResource("1_a6tmg")
-region_enabled = true
-region_rect = Rect2(81, 54, 131, 229)
+[node name="Mousetrap" type="Area2D"]
+script = ExtResource("1_hnpif")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 1)
 shape = SubResource("RectangleShape2D_yrc38")
 script = ExtResource("2_hnpif")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_a6tmg")
+region_enabled = true
+region_rect = Rect2(85, 54, 120, 230)
