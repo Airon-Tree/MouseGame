@@ -7,9 +7,12 @@ extends CharacterBody2D
 @onready var interact_area: Area2D = _fetch_interact_area()
 @onready var hold_point: Marker2D = _fetch_hold_point()
 @onready var sprite: Sprite2D = $Sprite2D
+#@onready var score_label: Label = get_tree().get_first_node_in_group("hud") as Label
+signal score_changed(new_score: int)
 
 var held_item: Node2D = null
 var last_move_dir := Vector2.RIGHT
+var score: int = 0
 
 func _player_draw_z() -> int:
 	sprite.z_as_relative = false
@@ -17,6 +20,7 @@ func _player_draw_z() -> int:
 	return sprite.z_index
 	
 func _ready() -> void:
+	add_to_group("player")
 	_player_draw_z()  # lock in player's high z
 
 func _physics_process(_delta: float) -> void:
@@ -47,6 +51,17 @@ func _physics_process(_delta: float) -> void:
 			var target := _get_closest_item_in_range()
 			if target:
 				_pickup_item(target)
+
+func add_score(points: int) -> void:
+	score = max(0, score + int(points))
+	_emit_score()
+
+func _emit_score() -> void:
+	emit_signal("score_changed", score)
+
+#func _update_score_label() -> void:
+	#if score_label:
+		#score_label.text = "Score: %d" % score
 
 func _get_carry_speed_multiplier() -> float:
 	if held_item and held_item.has_method("get_carry_speed_multiplier"):

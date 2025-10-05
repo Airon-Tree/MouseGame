@@ -11,6 +11,7 @@ collision_layer = 2
 collision_mask = 7
 script = ExtResource("2_kxmgs")
 speed_multiplier = 0.9
+score_value = 10
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1.9999695, 3.0517578e-05)

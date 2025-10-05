@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmsnhy747fxhw"]
+
+[ext_resource type="Script" uid="uid://c7no6dmsh1a1q" path="res://Script/win_ui.gd" id="1_dimls"]
+[ext_resource type="AudioStream" uid="uid://u3kh8ku8sk82" path="res://Music/Win.ogg" id="2_412oy"]
+
+[node name="WinUI" type="CanvasLayer"]
+visible = false
+script = ExtResource("1_dimls")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WinLabel" type="Label" parent="CenterContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "You Win!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WinMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_412oy")
+volume_db = -21.0

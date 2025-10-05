@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://drjjh4hukbjb4"]
+
+[ext_resource type="Script" uid="uid://dk7r5k31qbfn" path="res://Script/score_ui.gd" id="1_5qb4p"]
+
+[node name="ScoreUI" type="CanvasLayer" groups=["hud"]]
+script = ExtResource("1_5qb4p")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer"]
+layout_mode = 2
+text = "Score: 0"

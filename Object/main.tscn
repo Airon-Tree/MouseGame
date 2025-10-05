@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://brh6e5ytsj3o4"]
+[gd_scene load_steps=11 format=3 uid="uid://brh6e5ytsj3o4"]
 
 [ext_resource type="Script" uid="uid://v7jdryc184j4" path="res://Object/main.gd" id="1_desed"]
 [ext_resource type="PackedScene" uid="uid://cq0euw2i7edgy" path="res://Object/cheese.tscn" id="1_pka1d"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://fgd701onwood" path="res://Object/smallcheese.tscn" id="4_53eub"]
 [ext_resource type="PackedScene" uid="uid://c4tphd3q80phl" path="res://Object/wall.tscn" id="5_53eub"]
 [ext_resource type="Script" uid="uid://rfilx2578c5q" path="res://Object/label.gd" id="7_xkpur"]
+[ext_resource type="PackedScene" uid="uid://drjjh4hukbjb4" path="res://Scenes/ScoreUI.tscn" id="8_2itwi"]
+[ext_resource type="PackedScene" uid="uid://b4lfvc3e0ehdo" path="res://Object/hole.tscn" id="9_84tgt"]
+[ext_resource type="PackedScene" uid="uid://bmsnhy747fxhw" path="res://Scenes/WinUI.tscn" id="10_84tgt"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_desed")
@@ -21,10 +24,10 @@ position = Vector2(629, 144)
 base_move_speed = 400.0
 
 [node name="Cheese" parent="." instance=ExtResource("1_pka1d")]
-position = Vector2(193, 141)
+position = Vector2(368, 212)
 
 [node name="bigcheese" parent="." instance=ExtResource("3_ior4o")]
-position = Vector2(340, 425)
+position = Vector2(624, 480)
 
 [node name="smallcheese" parent="." instance=ExtResource("4_53eub")]
 position = Vector2(942, 405)
@@ -36,10 +39,17 @@ position = Vector2(498, 652)
 wait_time = 120.0
 
 [node name="Label" type="Label" parent="."]
-offset_left = 25.0
-offset_top = 2.0
-offset_right = 191.0
-offset_bottom = 76.0
+offset_left = 986.0
+offset_top = 1.0
+offset_right = 1152.0
+offset_bottom = 75.0
 script = ExtResource("7_xkpur")
+
+[node name="ScoreUI" parent="." instance=ExtResource("8_2itwi")]
+
+[node name="Hole" parent="." instance=ExtResource("9_84tgt")]
+position = Vector2(88, 314)
+
+[node name="WinUI" parent="." instance=ExtResource("10_84tgt")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
