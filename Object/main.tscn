@@ -37,28 +37,8 @@ position = Vector2(942, 405)
 [node name="wall" parent="." instance=ExtResource("5_53eub")]
 position = Vector2(509, 691)
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 120.0
-
-[node name="TimerLabel" type="Label" parent="."]
-offset_left = 986.0
-offset_top = 1.0
-offset_right = 1152.0
-offset_bottom = 75.0
-script = ExtResource("7_xkpur")
-
-[node name="ScoreUI" parent="." instance=ExtResource("8_2itwi")]
-
 [node name="Hole" parent="." instance=ExtResource("9_84tgt")]
 position = Vector2(88, 314)
-
-[node name="WinUI" parent="." instance=ExtResource("10_84tgt")]
-
-[node name="ScoreLabel" type="Label" parent="."]
-offset_left = 3.0
-offset_top = 46.0
-offset_right = 43.0
-offset_bottom = 69.0
 
 [node name="Mousetrap" parent="." instance=ExtResource("8_3y6f8")]
 position = Vector2(167, 113)
@@ -80,5 +60,26 @@ position = Vector2(1049, 333)
 
 [node name="spawn_start" type="Marker2D" parent="."]
 position = Vector2(486, 347)
+
+[node name="ScoreUI" parent="." instance=ExtResource("8_2itwi")]
+
+[node name="ScoreLabel" type="Label" parent="."]
+visible = false
+offset_left = 3.0
+offset_top = 46.0
+offset_right = 43.0
+offset_bottom = 69.0
+
+[node name="WinUI" parent="." instance=ExtResource("10_84tgt")]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 120.0
+
+[node name="TimerLabel" type="Label" parent="."]
+offset_left = 986.0
+offset_top = 1.0
+offset_right = 1152.0
+offset_bottom = 75.0
+script = ExtResource("7_xkpur")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
