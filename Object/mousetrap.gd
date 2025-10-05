@@ -5,7 +5,7 @@ func _ready() -> void:
 	connect("body_entered", Callable(self, "_on_body_entered"))
 
 func _on_body_entered(body: Node) -> void:
-	if body.is_in_group("mouse"):
+	if body.is_in_group("player"):
 		print("ded")
 		if body.has_method("die"):
 			body.die()

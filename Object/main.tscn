@@ -9,11 +9,11 @@
 [ext_resource type="Script" uid="uid://rfilx2578c5q" path="res://Object/label.gd" id="7_xkpur"]
 [ext_resource type="PackedScene" uid="uid://drjjh4hukbjb4" path="res://Scenes/ScoreUI.tscn" id="8_2itwi"]
 [ext_resource type="PackedScene" uid="uid://b0rwbxb01dje7" path="res://Object/mousetrap.tscn" id="8_3y6f8"]
-[ext_resource type="PackedScene" uid="uid://b4lfvc3e0ehdo" path="res://Object/hole.tscn" id="9_84tgt"]
+[ext_resource type="PackedScene" path="res://Object/hole.tscn" id="9_84tgt"]
 [ext_resource type="PackedScene" uid="uid://bmsnhy747fxhw" path="res://Scenes/WinUI.tscn" id="10_84tgt"]
 [ext_resource type="AudioStream" uid="uid://6u2txn7ieort" path="res://Music/time_for_adventure.mp3" id="12_ch6hu"]
 [ext_resource type="AudioStream" uid="uid://bsh2b54vf61cy" path="res://Music/Sketchbook 2024-08-07.ogg" id="13_jspdd"]
-[ext_resource type="PackedScene" uid="uid://kj3k63j6crf1" path="res://Object/door.tscn" id="14_efayg"]
+[ext_resource type="PackedScene" path="res://Object/door.tscn" id="14_efayg"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_desed")
