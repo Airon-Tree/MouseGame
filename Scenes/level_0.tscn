@@ -1,0 +1,71 @@
+[gd_scene load_steps=12 format=3 uid="uid://cdutv7211xhrm"]
+
+[ext_resource type="PackedScene" uid="uid://cq0euw2i7edgy" path="res://Object/cheese.tscn" id="1_oihvb"]
+[ext_resource type="PackedScene" uid="uid://ci6jhpoaafgwt" path="res://Object/bigcheese.tscn" id="2_5xren"]
+[ext_resource type="PackedScene" uid="uid://fgd701onwood" path="res://Object/smallcheese.tscn" id="3_uu2ix"]
+[ext_resource type="PackedScene" uid="uid://c4tphd3q80phl" path="res://Object/wall.tscn" id="4_n6y2o"]
+[ext_resource type="Script" uid="uid://rfilx2578c5q" path="res://Object/label.gd" id="5_3hmlb"]
+[ext_resource type="PackedScene" uid="uid://drjjh4hukbjb4" path="res://Scenes/ScoreUI.tscn" id="6_bb0r2"]
+[ext_resource type="PackedScene" uid="uid://bmsnhy747fxhw" path="res://Scenes/WinUI.tscn" id="7_y32iv"]
+[ext_resource type="PackedScene" uid="uid://b0rwbxb01dje7" path="res://Object/mousetrap.tscn" id="8_o6ba6"]
+[ext_resource type="AudioStream" uid="uid://6u2txn7ieort" path="res://Music/time_for_adventure.mp3" id="9_ta6og"]
+[ext_resource type="AudioStream" uid="uid://bsh2b54vf61cy" path="res://Music/Sketchbook 2024-08-07.ogg" id="10_n5v4w"]
+[ext_resource type="PackedScene" uid="uid://kj3k63j6crf1" path="res://Object/door.tscn" id="11_koqiv"]
+
+[node name="Room" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(1, 1, 0.42352942, 0.50980395)
+
+[node name="Cheese" parent="." groups=["cheese"] instance=ExtResource("1_oihvb")]
+position = Vector2(577, 128)
+
+[node name="bigcheese" parent="." groups=["cheese"] instance=ExtResource("2_5xren")]
+position = Vector2(1002, 568)
+
+[node name="smallcheese" parent="." groups=["cheese"] instance=ExtResource("3_uu2ix")]
+position = Vector2(755, 560)
+
+[node name="wall" parent="." instance=ExtResource("4_n6y2o")]
+position = Vector2(1145, 406)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 120.0
+
+[node name="TimerLabel" type="Label" parent="."]
+offset_left = 986.0
+offset_top = 1.0
+offset_right = 1152.0
+offset_bottom = 75.0
+script = ExtResource("5_3hmlb")
+
+[node name="ScoreUI" parent="." instance=ExtResource("6_bb0r2")]
+
+[node name="WinUI" parent="." instance=ExtResource("7_y32iv")]
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 3.0
+offset_top = 46.0
+offset_right = 43.0
+offset_bottom = 69.0
+
+[node name="Mousetrap" parent="." instance=ExtResource("8_o6ba6")]
+position = Vector2(703, 118)
+
+[node name="MainTheme" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_ta6og")
+volume_db = -20.0
+
+[node name="TimerEnding" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_n5v4w")
+volume_db = -10.0
+
+[node name="Door" parent="." instance=ExtResource("11_koqiv")]
+position = Vector2(44, 314)
+target_scene = "uid://brh6e5ytsj3o4"
+target_spawn = "spawn_from_room0"
+
+[node name="spawn_from_main" type="Marker2D" parent="."]
+position = Vector2(105, 315)

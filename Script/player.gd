@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var base_move_speed: float = 170.0
+@export var base_move_speed: float = 400.0
 @export var interact_area_path: NodePath = ^"InteractArea"
 @export var hold_point_path: NodePath = ^"HoldPoint"
 
@@ -42,6 +42,11 @@ func _physics_process(_delta: float) -> void:
 	var speed := base_move_speed * _get_carry_speed_multiplier()
 	velocity = dir * speed
 	move_and_slide()
+
+	# keep inside screen
+	var screen_size: Vector2 = get_viewport_rect().size
+	position.x = clamp(position.x, 0, screen_size.x)
+	position.y = clamp(position.y, 0, screen_size.y)
 
 	# Toggle pick/drop on F
 	if Input.is_action_just_pressed("pickup"):

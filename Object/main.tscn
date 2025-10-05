@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://brh6e5ytsj3o4"]
+[gd_scene load_steps=15 format=3 uid="uid://brh6e5ytsj3o4"]
 
 [ext_resource type="Script" uid="uid://v7jdryc184j4" path="res://Object/main.gd" id="1_desed"]
 [ext_resource type="PackedScene" uid="uid://cq0euw2i7edgy" path="res://Object/cheese.tscn" id="1_pka1d"]
@@ -9,22 +9,21 @@
 [ext_resource type="Script" uid="uid://rfilx2578c5q" path="res://Object/label.gd" id="7_xkpur"]
 [ext_resource type="PackedScene" uid="uid://drjjh4hukbjb4" path="res://Scenes/ScoreUI.tscn" id="8_2itwi"]
 [ext_resource type="PackedScene" uid="uid://b0rwbxb01dje7" path="res://Object/mousetrap.tscn" id="8_3y6f8"]
-[ext_resource type="PackedScene" path="res://Object/hole.tscn" id="9_84tgt"]
+[ext_resource type="PackedScene" uid="uid://b4lfvc3e0ehdo" path="res://Object/hole.tscn" id="9_84tgt"]
 [ext_resource type="PackedScene" uid="uid://bmsnhy747fxhw" path="res://Scenes/WinUI.tscn" id="10_84tgt"]
 [ext_resource type="AudioStream" uid="uid://6u2txn7ieort" path="res://Music/time_for_adventure.mp3" id="12_ch6hu"]
 [ext_resource type="AudioStream" uid="uid://bsh2b54vf61cy" path="res://Music/Sketchbook 2024-08-07.ogg" id="13_jspdd"]
+[ext_resource type="PackedScene" uid="uid://kj3k63j6crf1" path="res://Object/door.tscn" id="14_efayg"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_desed")
+player_scene = ExtResource("2_f1bcj")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 1152.0
+offset_left = 1.0
+offset_right = 1153.0
 offset_bottom = 648.0
 color = Color(1, 1, 0.42352942, 0.50980395)
-
-[node name="Player" parent="." groups=["mouse"] instance=ExtResource("2_f1bcj")]
-position = Vector2(674, 305)
-base_move_speed = 400.0
 
 [node name="Cheese" parent="." groups=["cheese"] instance=ExtResource("1_pka1d")]
 position = Vector2(368, 212)
@@ -36,7 +35,7 @@ position = Vector2(624, 480)
 position = Vector2(942, 405)
 
 [node name="wall" parent="." instance=ExtResource("5_53eub")]
-position = Vector2(498, 652)
+position = Vector2(509, 691)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 120.0
@@ -62,14 +61,24 @@ offset_right = 43.0
 offset_bottom = 69.0
 
 [node name="Mousetrap" parent="." instance=ExtResource("8_3y6f8")]
-position = Vector2(218, 470)
+position = Vector2(167, 113)
 
 [node name="MainTheme" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_ch6hu")
+volume_db = -20.0
 
 [node name="TimerEnding" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("13_jspdd")
+volume_db = -10.0
 
-[connection signal="mouse_entered" from="Player" to="." method="_on_player_mouse_entered"]
-[connection signal="mouse_entered" from="Player" to="Mousetrap" method="_on_player_mouse_entered"]
+[node name="Door" parent="." instance=ExtResource("14_efayg")]
+position = Vector2(1119, 332)
+target_scene = "uid://cdutv7211xhrm"
+
+[node name="spawn_from_room0" type="Marker2D" parent="."]
+position = Vector2(1049, 333)
+
+[node name="spawn_start" type="Marker2D" parent="."]
+position = Vector2(486, 347)
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

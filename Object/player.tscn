@@ -4,29 +4,29 @@
 [ext_resource type="Texture2D" uid="uid://b6dhwv47t04t6" path="res://Art/Mouse.png" id="2_a1t8t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b5wsg"]
-size = Vector2(215, 81)
+size = Vector2(119.5, 42.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uowl7"]
-radius = 116.03879
+radius = 67.36468
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 7
 script = ExtResource("1_kwdud")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-5.0000076, 1)
-scale = Vector2(0.47772828, 0.5083682)
+position = Vector2(2, -1)
+scale = Vector2(0.2923163, 0.34205022)
 texture = ExtResource("2_a1t8t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-4.5, 25.5)
+position = Vector2(-2.75, 17.25)
 shape = SubResource("RectangleShape2D_b5wsg")
 
 [node name="InteractArea" type="Area2D" parent="."]
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
-position = Vector2(-7, 0)
+position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_uowl7")
 
 [node name="HoldPoint" type="Marker2D" parent="."]

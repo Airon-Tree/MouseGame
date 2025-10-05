@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cixq478g7dm0c" path="res://Script/pickup_item.gd" id="1_vnqyh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vnqyh"]
-size = Vector2(283, 191)
+size = Vector2(128.75, 92.25)
 
 [node name="bigcheese" type="Area2D"]
 collision_layer = 2
@@ -14,10 +14,10 @@ speed_multiplier = 0.55
 score_value = 50
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-9.499989, -2.0000038)
-scale = Vector2(0.273, 0.26436782)
+position = Vector2(2.9999847, -3.9999962)
+scale = Vector2(0.109999985, 0.13218391)
 texture = ExtResource("1_7c2m3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-8, 2)
+position = Vector2(1, -3)
 shape = SubResource("RectangleShape2D_vnqyh")

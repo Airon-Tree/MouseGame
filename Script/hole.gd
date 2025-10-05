@@ -104,6 +104,9 @@ func _do_win(player: Node) -> void:
 		win_ui.call("show_win", final_score)
 	elif debug_print:
 		print("[Hole] WinUI not found or show_win() missing. Add WinUI.tscn and put it in group 'win_ui'.")
+	
+		
+	get_tree().current_scene.call("stop_bgm")
 
 func _has_player_ancestor(n: Node) -> bool:
 	var cur := n.get_parent()
