@@ -20,7 +20,7 @@ offset_bottom = 648.0
 color = Color(1, 1, 0.42352942, 0.50980395)
 
 [node name="Player" parent="." instance=ExtResource("2_f1bcj")]
-position = Vector2(629, 144)
+position = Vector2(674, 305)
 base_move_speed = 400.0
 
 [node name="Cheese" parent="." instance=ExtResource("1_pka1d")]
