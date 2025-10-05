@@ -38,7 +38,7 @@ position = Vector2(498, 652)
 [node name="Timer" type="Timer" parent="."]
 wait_time = 120.0
 
-[node name="Label" type="Label" parent="."]
+[node name="TimerLabel" type="Label" parent="."]
 offset_left = 986.0
 offset_top = 1.0
 offset_right = 1152.0
@@ -51,5 +51,10 @@ script = ExtResource("7_xkpur")
 position = Vector2(88, 314)
 
 [node name="WinUI" parent="." instance=ExtResource("10_84tgt")]
+
+[node name="ScoreLabel" type="Label" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
