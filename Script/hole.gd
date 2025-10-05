@@ -107,7 +107,16 @@ func _do_win(player: Node) -> void:
 	
 		
 	get_tree().current_scene.call("stop_bgm")
-
+	
+func _show_lose_ui(final_score: int) -> void:
+	var lose_ui := get_tree().get_first_node_in_group("lose_ui")
+	if not lose_ui:
+		lose_ui = get_tree().root.find_child("LoseUI", true, false)
+	if lose_ui and lose_ui.has_method("show_lose"):
+		lose_ui.call("show_lose", final_score)
+	else:
+		print("[Game] LoseUI not found or show_lose() missing.")
+		
 func _has_player_ancestor(n: Node) -> bool:
 	var cur := n.get_parent()
 	while cur:

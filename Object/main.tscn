@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://brh6e5ytsj3o4"]
+[gd_scene load_steps=16 format=3 uid="uid://brh6e5ytsj3o4"]
 
 [ext_resource type="Script" uid="uid://v7jdryc184j4" path="res://Object/main.gd" id="1_desed"]
 [ext_resource type="PackedScene" uid="uid://cq0euw2i7edgy" path="res://Object/cheese.tscn" id="1_pka1d"]
@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://6u2txn7ieort" path="res://Music/time_for_adventure.mp3" id="12_ch6hu"]
 [ext_resource type="AudioStream" uid="uid://bsh2b54vf61cy" path="res://Music/Sketchbook 2024-08-07.ogg" id="13_jspdd"]
 [ext_resource type="PackedScene" path="res://Object/door.tscn" id="14_efayg"]
+[ext_resource type="Script" uid="uid://ds47takrpi4bx" path="res://Scenes/lose_ui.gd" id="14_o7mgb"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_desed")
@@ -41,7 +42,7 @@ position = Vector2(509, 691)
 position = Vector2(88, 314)
 
 [node name="Mousetrap" parent="." instance=ExtResource("8_3y6f8")]
-position = Vector2(167, 113)
+position = Vector2(168, 113)
 
 [node name="MainTheme" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_ch6hu")
@@ -64,13 +65,17 @@ position = Vector2(486, 347)
 [node name="ScoreUI" parent="." instance=ExtResource("8_2itwi")]
 
 [node name="ScoreLabel" type="Label" parent="."]
-visible = false
 offset_left = 3.0
 offset_top = 46.0
 offset_right = 43.0
 offset_bottom = 69.0
 
 [node name="WinUI" parent="." instance=ExtResource("10_84tgt")]
+
+[node name="LoseUI" parent="." groups=["lose_ui"] instance=ExtResource("10_84tgt")]
+script = ExtResource("14_o7mgb")
+
+[node name="WinUI3" parent="." instance=ExtResource("10_84tgt")]
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 120.0
@@ -82,4 +87,5 @@ offset_right = 1152.0
 offset_bottom = 75.0
 script = ExtResource("7_xkpur")
 
+[connection signal="visibility_changed" from="LoseUI" to="Mousetrap" method="_on_lose_ui_visibility_changed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

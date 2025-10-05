@@ -6,7 +6,7 @@ extends CanvasLayer
 func show_win(final_score: int) -> void:
 	visible = true
 	if win_label:
-		win_label.text = "You Win!\nScore: %d" % final_score
+		win_label.text = "You Win!\nScore: %d \nPress Q to Restart!" % final_score
 	if win_music and win_music.stream:
 		win_music.play()
 		

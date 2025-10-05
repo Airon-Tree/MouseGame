@@ -61,8 +61,13 @@ func _process(delta: float) -> void:
 		
 	if timer.time_left <= 30.0 and not txtcolorchange:
 		_change_label_color(Color.RED)
+	if Input.is_key_pressed(KEY_Q):
+		_restart_game()
 		
-
+		
+func _restart_game() -> void:
+	get_tree().reload_current_scene()
+	
 func _switch_music():
 	timerunningout = true
 	if maintheme.playing:
@@ -78,7 +83,19 @@ func stop_bgm() -> void:
 func _change_label_color(color: Color) -> void:
 	txtcolorchange = true
 	$TimerLabel.add_theme_color_override("font_color", color)
+	
+	
+func _show_lose_ui(final_score: int) -> void:
+	var lose_ui := get_tree().get_first_node_in_group("lose_ui")
+	if not lose_ui:
+		lose_ui = get_tree().root.find_child("LoseUI", true, false)
+	if lose_ui and lose_ui.has_method("show_lose"):
+		lose_ui.call("show_lose", final_score)
+	else:
+		print("[Game] LoseUI not found or show_lose() missing.")
 
 func _on_timer_timeout() -> void:
 	if(score < target_score):
 		print("Game Over")
+		_show_lose_ui(score)
+		
