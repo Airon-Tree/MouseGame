@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgw26ef07y6it"]
+
+[ext_resource type="Script" uid="uid://b7ybvibxrms83" path="res://autoloads/RoomGenerator.gd" id="1_ifrnm"]
+[ext_resource type="PackedScene" uid="uid://cemro732joryy" path="res://Scenes/Templates/template_0.tscn" id="2_24uft"]
+[ext_resource type="PackedScene" uid="uid://chid2a6bm6ovb" path="res://Scenes/Templates/start_scene.tscn" id="3_bx720"]
+
+[node name="RoomGeneratorNode" type="Node"]
+script = ExtResource("1_ifrnm")
+template_pool = Array[PackedScene]([ExtResource("2_24uft")])
+center_template = ExtResource("3_bx720")

@@ -31,3 +31,5 @@ shape = SubResource("CircleShape2D_uowl7")
 
 [node name="HoldPoint" type="Marker2D" parent="."]
 position = Vector2(0, -45)
+
+[node name="Camera2D" type="Camera2D" parent="."]

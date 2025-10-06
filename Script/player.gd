@@ -43,10 +43,15 @@ func _physics_process(_delta: float) -> void:
 	velocity = dir * speed
 	move_and_slide()
 
-	# keep inside screen
-	var screen_size: Vector2 = get_viewport_rect().size
-	position.x = clamp(position.x, 0, screen_size.x)
-	position.y = clamp(position.y, 0, screen_size.y)
+	# --- replace the "keep inside screen" block in player.gd with this ---
+
+	# Keep inside world (3x3 rooms), not inside a single screen.
+	# We read the world size from the generator: GRID_SIZE * CELL_SIZE.
+	var world_w := float(RoomGenerator.CELL_SIZE.x * RoomGenerator.GRID_SIZE.x)
+	var world_h := float(RoomGenerator.CELL_SIZE.y * RoomGenerator.GRID_SIZE.y)
+	position.x = clamp(position.x, 0.0, world_w)
+	position.y = clamp(position.y, 0.0, world_h)
+
 
 	# Toggle pick/drop on F
 	if Input.is_action_just_pressed("pickup"):

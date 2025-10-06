@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://cemro732joryy"]
+
+[ext_resource type="PackedScene" uid="uid://cq0euw2i7edgy" path="res://Object/cheese.tscn" id="1_ignj4"]
+[ext_resource type="PackedScene" uid="uid://ci6jhpoaafgwt" path="res://Object/bigcheese.tscn" id="2_xntrq"]
+[ext_resource type="PackedScene" uid="uid://fgd701onwood" path="res://Object/smallcheese.tscn" id="3_83gmf"]
+[ext_resource type="PackedScene" uid="uid://c4tphd3q80phl" path="res://Object/wall.tscn" id="4_uj3hk"]
+
+[node name="template_0" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(1, 1, 0.42352942, 0.50980395)
+metadata/_edit_use_anchors_ = true
+
+[node name="Cheese" parent="." groups=["cheese"] instance=ExtResource("1_ignj4")]
+position = Vector2(577, 128)
+
+[node name="bigcheese" parent="." groups=["cheese"] instance=ExtResource("2_xntrq")]
+position = Vector2(1002, 568)
+
+[node name="smallcheese" parent="." groups=["cheese"] instance=ExtResource("3_83gmf")]
+position = Vector2(755, 560)
+
+[node name="wall" parent="." instance=ExtResource("4_uj3hk")]
+position = Vector2(749, 350)
+scale = Vector2(0.6068976, 1)
+
+[node name="wallU" parent="." instance=ExtResource("4_uj3hk")]
+position = Vector2(497, -48)
+
+[node name="wallL" parent="." instance=ExtResource("4_uj3hk")]
+position = Vector2(-45, 266)
+rotation = 1.5707964
+scale = Vector2(0.707, 1)
+
+[node name="wallR" parent="." instance=ExtResource("4_uj3hk")]
+position = Vector2(1202, 273)
+rotation = 1.5707964
+scale = Vector2(0.707, 1)
+
+[node name="wallD" parent="." instance=ExtResource("4_uj3hk")]
+position = Vector2(494, 692)

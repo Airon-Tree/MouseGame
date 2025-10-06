@@ -12,7 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://bsh2b54vf61cy" path="res://Music/Sketchbook 2024-08-07.ogg" id="10_n5v4w"]
 [ext_resource type="PackedScene" uid="uid://kj3k63j6crf1" path="res://Object/door.tscn" id="11_koqiv"]
 
-[node name="Room" type="Node2D"]
+[node name="level_0" type="Node2D"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1152.0

@@ -17,7 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-RoomManager="*res://autoloads/RoomManager.gd"
+RoomGenerator="*res://autoloads/room_generator_node.tscn"
+RoomManager="res://autoloads/RoomManager.gd"
 
 [global_group]
 
